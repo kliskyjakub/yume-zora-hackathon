@@ -4,10 +4,11 @@ import Footer from "../footer/Footer";
 import Header from "../header/Header";
 
 import {ZDK, ZDKNetwork, ZDKChain} from "@zoralabs/zdk";
+import ItemPreview from "./ItemPreview";
 
 const Home = () => {
     const [currentVolume, setCurrentVolume] = useState("");
-    const [tokenBalance, setTokenBalance] = useState("");
+    const [tokenBalance, setTokenBalance] = useState([]);
 
     const getZoraData = async () => {
         const networkInfo = {
@@ -43,13 +44,13 @@ const Home = () => {
                 direct: "DESC",
                 sortKey: "NATIVE_PRICE"
             },
-            pagination: {limit:3}
+            pagination: {limit:9}
         };
 
         const response2 = await zdk.sales(args2);
-        console.log(response2)
-        setTokenBalance(response2)
-
+        console.log(response2.sales.nodes)
+        setTokenBalance(response2.sales.nodes)
+        console.log(tokenBalance)
     }
 
     useEffect(() => {
@@ -65,26 +66,9 @@ const Home = () => {
                     {"total volume in eth : " + currentVolume.chainTokenPrice}<br/>
                     {"total num of txns : " + currentVolume.totalCount}<br/><br/>
                     ----------------------------------------<br/>
-                    <p>
-                        Jakub Kliský<br/>
-                        founder<br/>
-                        <a href="https://twitter.com/kliskyjakub" className="main"
-                           target="_blank">https://twitter.com/kliskyjakub</a>
-                    </p>
-                    ----------------------------------------<br/>
-                    <p>
-                        Luke Lee<br/>
-                        smart contract dev<br/>
-                        <a href="https://twitter.com/etherehyun" className="main"
-                           target="_blank">https://twitter.com/etherehyun</a>
-                    </p>
-                    ----------------------------------------
-                    <p>
-                        Lukas Babic<br/>
-                        marketing<br/>
-                        <a href="https://twitter.com/lukasbabic_" className="main"
-                           target="_blank">https://twitter.com/lukasbabic_</a>
-                    </p>
+                    {/*{tokenBalance.map((token, id) => {*/}
+                    {/*    return <ItemPreview token={token} id={id}/>*/}
+                    {/*})}*/}
                 </div>
             </div>
             <Footer/>
