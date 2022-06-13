@@ -1,12 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import styles from "./Home.module.css";
 import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import {ZDK, ZDKChain, ZDKNetwork} from "@zoralabs/zdk";
 import ItemPreview from "./ItemPreview";
+import {WalletContext} from "../../store/WalletContext";
 
 const Dashboard = () => {
     const [ownedTokens, setOwnedTokens] = useState([]);
+    const {currentAccount, setCurrentAccount} = useContext(WalletContext);
 
     const getOwnedTokens = async () => {
         const networkInfo = {
@@ -26,19 +28,23 @@ const Dashboard = () => {
         const args = {
             where: {
                 collectionAddresses: ["0xCa21d4228cDCc68D4e23807E5e370C07577Dd152"],
-                // TODO: replace with the currently connected wallet address
-                ownerAddresses: ["0xeC05C01a5535dbF7bbE201f4f22fBA670E0d83a7"]
+                ownerAddresses: [currentAccount]
             },
         };
 
-        const response = await zdk.tokens(args);
-        setOwnedTokens(response.tokens.nodes)
+        if (currentAccount) {
+            const response = await zdk.tokens(args);
+            setOwnedTokens(response.tokens.nodes)
+        } else {
+            setOwnedTokens([])
+        }
     }
 
     useEffect(() => {
         getOwnedTokens()
     }, []);
 
+    console.log(ownedTokens)
     return (
         <div className={styles["page_wrapper"]}>
             <Header/>
@@ -46,9 +52,14 @@ const Dashboard = () => {
                 your yume-eligible zorbs:<br/><br/>
                 get your zora merch!<br/><br/>
 
-                {ownedTokens.map((token, id) => {
-                    return <ItemPreview token={token} id={id}/>
-                })}
+                {!(Array.isArray(ownedTokens) && ownedTokens.length) ?
+                    <>
+                        there are no zorb nfts in your wallet
+                    </>
+                    : ownedTokens.map((token, id) => {
+                        return <ItemPreview token={token} id={id}/>
+                    })
+                }
             </div>
             <Footer/>
         </div>

@@ -62,6 +62,7 @@ const Home = () => {
             <Header/>
             <div className={styles["section_wrapper"]}>
                 <div className={styles["marketplace_wrapper"]}>
+                    zorb collection details:<br/><br/>
                     {"total volume in usd : " + currentVolume.usdcPrice}<br/>
                     {"total volume in eth : " + currentVolume.chainTokenPrice}<br/>
                     {"total num of txns : " + currentVolume.totalCount}<br/>
