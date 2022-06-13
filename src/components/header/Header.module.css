@@ -1,0 +1,8 @@
+.gif_invert {
+    display: block;
+    margin: auto;
+    height: 20vh;
+    margin-bottom: 3vh;
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}

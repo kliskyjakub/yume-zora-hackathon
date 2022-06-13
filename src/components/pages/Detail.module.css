@@ -1,0 +1,57 @@
+.page_wrapper {
+    position: relative;
+    min-height: 100vh;
+    vertical-align: center;
+    overflow: auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    margin-top: 2.2em;
+}
+
+.section_wrapper {
+    overflow: auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+.page_wrapper a {
+    text-decoration: none;
+    color: white;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+}
+
+.detail_wrapper > div {
+    width: 75vw;
+    margin-left: 25%!important;
+}
+:global .zora-fullMediaWrapper {
+    margin: 0!important;
+    /*margin-top: 5%!important;*/
+    width: 50%!important;
+}
+:global .zora-mediaObject {
+    display: block;
+    width: 35%;
+}
+:global .zora-colectionTagWrapper{
+    display: none!important;
+}
+:global .zora-fullPageDataGrid {
+    width: 50%;
+}
+h2{
+    font-size: 18px!important;
+    font-weight: bold!important;
+}

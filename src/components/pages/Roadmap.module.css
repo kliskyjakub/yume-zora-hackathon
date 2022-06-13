@@ -1,0 +1,46 @@
+.page_wrapper {
+    position: relative;
+    min-height: 100vh;
+    vertical-align: center;
+    overflow: auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    margin-top: 2.2em;
+}
+
+.section_wrapper {
+    overflow: auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+.page_wrapper a {
+    text-decoration: none;
+    color: white;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+}
+.phase_wrapper {
+    width: 98%;
+    margin-left: 1%;
+    display: block;
+    border: 1px dashed white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.phase_connector{
+    height: 30px;
+    width: 50%;
+    border-right: 1px dashed white;
+}

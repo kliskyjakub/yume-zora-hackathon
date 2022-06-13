@@ -1,0 +1,47 @@
+.nav_account_wrapper {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+  z-index: 1;
+}
+
+.nav_account_actions {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  margin-right: 1rem;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.account_button {
+  padding: 1rem 1rem 1rem 1rem;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+  height: 3rem;
+  font-weight: 600;
+
+  cursor: pointer;
+  border: none;
+  background: black;
+  color: #fff;
+  border-radius: 1rem;
+  border: 1px dotted white;
+  font-family: 'Courier Prime';
+}
+
+.account_text {
+  font-weight: 600;
+  color: gray;
+  font-size: 14px;
+}
+
+@media (max-width: 500px){
+  .account_text {
+    display: none;
+  }
+}
