@@ -53,8 +53,8 @@ const Home = () => {
     }
 
     useEffect(() => {
-        getVolumeData()
         getCollectionData()
+        getVolumeData()
     }, []);
 
     return (
