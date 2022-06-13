@@ -41,8 +41,8 @@ const Dashboard = () => {
     }
 
     useEffect(() => {
-        getOwnedTokens()
-    }, []);
+        getOwnedTokens();
+    }, [currentAccount]);
 
     console.log(ownedTokens)
     return (

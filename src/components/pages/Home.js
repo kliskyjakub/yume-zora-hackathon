@@ -45,7 +45,7 @@ const Home = () => {
                 direct: "ASC",
                 sortKey: "MINTED"
             },
-            pagination: {limit: 3}
+            pagination: {limit: 6}
         };
 
         const response2 = await zdk.tokens(args2);
